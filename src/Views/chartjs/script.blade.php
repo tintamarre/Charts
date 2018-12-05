@@ -7,7 +7,7 @@
         window.{{ $chart->id }} = new Chart(document.getElementById("{{ $chart->id }}").getContext("2d"), {
             type: {!! $chart->type ? "'{$chart->type}'" : 'data[0].type' !!},
             data: {
-                labels: labels,
+                labels: @if ($chart->api_url) labels @else {!! $chart->formatLabels() !!} @endif,
                 datasets: datasets
             },
             options: {!! $chart->formatOptions(true) !!}
@@ -15,3 +15,5 @@
     }
     @include('charts::init')
 </script>
+
+
