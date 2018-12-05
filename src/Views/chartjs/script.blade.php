@@ -7,8 +7,8 @@
         window.{{ $chart->id }} = new Chart(document.getElementById("{{ $chart->id }}").getContext("2d"), {
             type: {!! $chart->type ? "'{$chart->type}'" : 'data[0].type' !!},
             data: {
-                labels: {!! $chart->formatLabels() !!},
-                datasets: data
+                labels: labels,
+                datasets: datasets
             },
             options: {!! $chart->formatOptions(true) !!}
         });
