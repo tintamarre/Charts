@@ -185,10 +185,7 @@ class BaseChart
      */
     public function options($options, bool $overwrite = false)
     {
-        if (!empty($options['plugins'])) {
-            $options['plugins'] = new Raw(trim(preg_replace('/\s\s+/', ' ', $options['plugins'])));
-        }
-
+    
         if ($options instanceof Collection) {
             $options = $options->toArray();
         }
